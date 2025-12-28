@@ -5,16 +5,34 @@ import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import MagneticButton from "@/components/MagneticButton";
-import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, ArrowRight, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 export default function ContactPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate submission
-        setIsSubmitted(true);
+        setIsLoading(true);
+        setError(null);
+
+        const data = new FormData();
+        data.append('name', formData.name);
+        data.append('email', formData.email);
+        data.append('message', formData.message);
+
+        const result = await sendEmail(data);
+
+        if (result.success) {
+            setIsSubmitted(true);
+            setFormData({ name: "", email: "", message: "" });
+        } else {
+            setError(result.error || "Something went wrong. Please try again.");
+        }
+        setIsLoading(false);
     };
 
     const socialLinks = [
@@ -97,12 +115,22 @@ export default function ContactPage() {
                                             />
                                         </div>
 
+                                        {error && (
+                                            <div style={{ color: '#ff4d4d', fontSize: '0.9rem', marginBottom: '-20px' }}>
+                                                {error}
+                                            </div>
+                                        )}
                                         <MagneticButton
                                             type="submit"
+                                            disabled={isLoading}
                                             className="btn-primary"
-                                            style={{ width: 'fit-content', display: 'flex', alignItems: 'center', gap: '15px' }}
+                                            style={{ width: 'fit-content', display: 'flex', alignItems: 'center', gap: '15px', opacity: isLoading ? 0.7 : 1 }}
                                         >
-                                            Send Message <ArrowRight size={18} />
+                                            {isLoading ? (
+                                                <>Sending <Loader2 size={18} className="animate-spin" /></>
+                                            ) : (
+                                                <>Send Message <ArrowRight size={18} /></>
+                                            )}
                                         </MagneticButton>
                                     </motion.form>
                                 ) : (
@@ -144,7 +172,7 @@ export default function ContactPage() {
                             <div className="info-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px' }}>
                                 <div className="info-item">
                                     <h4 style={{ color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '2px', marginBottom: '20px' }}>Location</h4>
-                                    <p style={{ fontSize: '1.2rem' }}>Belgrade, Serbia / Global</p>
+                                    <p style={{ fontSize: '1.2rem' }}>Abuja, Nigeria / Global</p>
                                 </div>
                                 <div className="info-item">
                                     <h4 style={{ color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '2px', marginBottom: '20px' }}>Email</h4>

@@ -9,9 +9,10 @@ interface MagneticButtonProps {
     onClick?: () => void;
     type?: "button" | "submit" | "reset";
     style?: React.CSSProperties;
+    disabled?: boolean;
 }
 
-export default function MagneticButton({ children, className, onClick, type = "button", style }: MagneticButtonProps) {
+export default function MagneticButton({ children, className, onClick, type = "button", style, disabled }: MagneticButtonProps) {
     const mouseRef = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -43,6 +44,7 @@ export default function MagneticButton({ children, className, onClick, type = "b
                 type={type}
                 className={className}
                 onClick={onClick}
+                disabled={disabled}
                 animate={{ x: position.x, y: position.y }}
                 transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
                 style={style}

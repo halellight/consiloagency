@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         siteName: 'Consilo',
         images: [
             {
-                url: '/img/logo.png',
+                url: '/img/opengraph.png',
                 width: 800,
                 height: 600,
             },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Consilo | Digital Creative Agency',
         description: 'Creatives looking to change the world. Digital products for startups and leading companies.',
-        images: ['/img/logo.png'],
+        images: ['/img/opengraph.png'],
     },
 };
 
@@ -64,8 +64,15 @@ export default function RootLayout({
             --font-header: 'Orbitron', sans-serif;
             --font-body: 'Outfit', sans-serif;
             --font-accent: 'Pacifico', cursive;
-            --section-padding: 100px 5%;
+            --section-padding: 80px 5%;
+            --header-padding: 150px;
             --container-max-width: 1440px;
+          }
+          @media (max-width: 768px) {
+            :root {
+              --header-padding: 100px;
+              --section-padding: 60px 5%;
+            }
           }
           * { margin: 0; padding: 0; box-sizing: border-box; }
           html { scroll-behavior: smooth; }
@@ -76,7 +83,7 @@ export default function RootLayout({
           .c1 { width: 700px; height: 700px; top: -100px; left: -200px; }
           .c2 { width: 600px; height: 600px; top: 20%; right: -100px; }
           .c3 { width: 800px; height: 800px; bottom: -200px; left: 30%; }
-          .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); }
+          .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); }
           .logo { font-size: 1.8rem; font-weight: 700; font-family: 'Poppins', sans-serif; }
           .logo a { color: white; text-decoration: none; }
           .dot { color: var(--accent); }

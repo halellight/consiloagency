@@ -17,16 +17,16 @@ export default function EditorialPage() {
                 <div className="circle c3"></div>
             </div>
             <Navbar />
-            <main style={{ paddingTop: '150px', paddingLeft: '5%', paddingRight: '5%' }}>
-                <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '40px', fontFamily: 'var(--font-header)' }}>Editorial</h1>
-                <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', marginBottom: '60px', maxWidth: '700px' }}>
+            <main style={{ paddingTop: 'var(--header-padding)', paddingLeft: '5%', paddingRight: '5%' }}>
+                <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '40px', fontFamily: 'var(--font-header)' }}>Editorial<span className="dot">.</span></h1>
+                <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.5rem)', color: 'var(--text-secondary)', marginBottom: '60px', maxWidth: '700px' }}>
                     Insights, thoughts, and industry trends from the Consilo team.
                 </p>
 
                 <div className="editorial-grid" style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-                    gap: '40px',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 350px), 1fr))',
+                    gap: 'clamp(20px, 4vw, 40px)',
                     marginBottom: '100px'
                 }}>
                     {articles.map((article: any, index: number) => (
@@ -47,10 +47,10 @@ export default function EditorialPage() {
                                 data-step={String(index + 1).padStart(2, '0')}
                             >
                                 <div style={{ marginBottom: '20px' }}>
-                                    <span style={{ color: 'var(--accent)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{article.date}</span>
-                                    <h3 style={{ fontSize: '2rem', marginTop: '10px', fontFamily: 'var(--font-body)' }}>{article.title}</h3>
+                                    <span style={{ color: 'var(--accent)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{article.date}</span>
+                                    <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', marginTop: '10px', fontFamily: 'var(--font-body)', lineHeight: '1.3' }}>{article.title}</h3>
                                 </div>
-                                <p className="card-text">{article.excerpt}</p>
+                                <p className="card-text" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)' }}>{article.excerpt}</p>
                                 <div style={{ marginTop: '30px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                     <span style={{ textDecoration: 'underline' }}>Read Article</span>
                                     <span style={{ color: 'var(--accent)' }}>→</span>
