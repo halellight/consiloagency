@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 const projectData: any = {
     bumbly: {
@@ -147,6 +149,22 @@ export default function Work() {
                                             <h3>Year</h3>
                                             <p>{selectedProject.year}</p>
                                         </div>
+                                    </div>
+                                    <div style={{ marginTop: '40px' }}>
+                                        <Link
+                                            href={`/work/${selectedProject.id}`}
+                                            className="btn-primary"
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                gap: '10px',
+                                                width: '100%',
+                                                padding: '15px'
+                                            }}
+                                        >
+                                            View Full Case Study <ExternalLink size={18} />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

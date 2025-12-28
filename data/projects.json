@@ -1,0 +1,30 @@
+{
+    "bumbly": {
+        "id": "bumbly",
+        "title": "Bumbly",
+        "category": "Mobile App design",
+        "client": "Bumbly Inc.",
+        "year": "2024",
+        "services": "Brand Identity, UI/UX Design",
+        "description": "Bumbly is a social networking platform designed to reconnect people through meaningful, location-based interactions. We created a vibrant visual language and a seamless mobile experience.",
+        "fullDescription": "The Bumbly project was born out of a desire to create a more human digital experience. In a world of infinite scrolling and shallow connections, Bumbly focuses on real-world proximity and shared interests. Our team spent months researching user behaviors and local interaction patterns to develop a platform that feels both intuitive and exciting.",
+        "imgClass": "bumbly-img",
+        "challenge": "The biggest challenge was balancing privacy with discovery. How do you encourage people to meet in person without compromising their security? We solved this through a unique 'Handshake' protocol and verified safe-zones.",
+        "solution": "We implemented a playful yet secure UI that uses soft gradients and organic shapes to put users at ease. The interface is designed to be 'distraction-free', focusing only on what's nearby.",
+        "impact": "Launched in 3 major cities, Bumbly reached 50k active users in its first month with a 40% retention rate. It has been featured in several tech publications as 'The anti-social social app'."
+    },
+    "finwise": {
+        "id": "finwise",
+        "title": "Finwise",
+        "category": "Website design",
+        "client": "Finwise Global",
+        "year": "2023",
+        "services": "Web Design, Fintech Strategy",
+        "description": "Finwise is a next-generation financial management dashboard. Our goal was to simplify complex data visualization into an intuitive and empowering user interface.",
+        "fullDescription": "Finwise aims to democratize financial data. Most financial tools are either too complex for individuals or too simple for professionals. Our mission was to bridge that gap, providing a tool that scales with the user's expertise. We worked closely with financial analysts and everyday savers to find the perfect medium.",
+        "imgClass": "finwise-img",
+        "challenge": "The primary hurdle was the sheer volume of data. Representing multi-currency accounts, stock portfolios, and daily expenses in a single view required a revolutionary approach to data hierarchy.",
+        "solution": "We developed a 'Smart Card' system where each financial element is its own interactive module. Users can customize their dashboard with a drag-and-drop interface that feels as smooth as a video game.",
+        "impact": "Finwise helped its beta users save an average of 15% more per month. The platform won the 'Golden Pixel' award for innovative UX in Fintech 2023."
+    }
+}

@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 import { Analytics } from "@vercel/analytics/react";
+import CustomCursor from "@/components/CustomCursor";
+import PageTransition from "@/components/PageTransition";
+import { AnimatePresence } from "framer-motion";
 
 export const metadata: Metadata = {
+    // ... existing metadata
     metadataBase: new URL('https://consilo.agency'),
     title: "Consilo | Digital Creative Agency",
     description: "Creatives looking to change the world. Digital products for startups and leading companies.",
@@ -164,10 +168,15 @@ export default function RootLayout({
         ` }} />
             </head>
             <body>
+                <CustomCursor />
                 <Preloader />
-                <SmoothScroll>
-                    {children}
-                </SmoothScroll>
+                <AnimatePresence mode="wait">
+                    <PageTransition>
+                        <SmoothScroll>
+                            {children}
+                        </SmoothScroll>
+                    </PageTransition>
+                </AnimatePresence>
                 <Analytics />
             </body>
         </html>

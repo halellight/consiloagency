@@ -31,6 +31,7 @@ export default function Navbar() {
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About", href: "/about" },
+        { name: "Work", href: "/#work" },
         { name: "Editorial", href: "/editorial" },
         { name: "Merchandise", href: "/merchandise" },
         { name: "Contact", href: "/contact" },
@@ -49,7 +50,12 @@ export default function Navbar() {
                 <ul className="nav-items">
                     {navLinks.map((link) => (
                         <li key={link.name}>
-                            <Link href={link.href}>{link.name}</Link>
+                            <motion.div
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            >
+                                <Link href={link.href}>{link.name}</Link>
+                            </motion.div>
                         </li>
                     ))}
                 </ul>
